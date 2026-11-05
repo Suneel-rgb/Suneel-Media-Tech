@@ -147,26 +147,5 @@ body {
 
 .swiper-button-prev,
 .swiper-button-next {
-  color: #087EF5 !important;
-  background: rgba(11, 25, 46, 0.85);
-  border: 1px solid #162B48;
-  width: 44px !important;
-  height: 44px !important;
-  border-radius: 12px;
-  backdrop-filter: blur(8px);
-  transition: all 0.2s ease;
-}
-
-.swiper-button-prev:after,
-.swiper-button-next:after {
-  font-size: 16px !important;
-  font-weight: 700;
-}
-
-.swiper-button-prev:hover,
-.swiper-button-next:hover {
-  background: #087EF5;
-  color: #FFFFFF !important;
-  border-color: #087EF5;
-  box-shadow: 0 0 16px rgba(8, 126, 245, 0.4);
+  display: none !important;
 }

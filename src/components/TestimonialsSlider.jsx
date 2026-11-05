@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { Star, ShieldCheck, Quote, CheckCircle2, MessageSquareQuote } from 'lucide-react';
+import { Pagination, Autoplay } from 'swiper/modules';
+import { Star, ShieldCheck, Quote, CheckCircle2, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function TestimonialsSlider() {
+  const swiperRef = useRef(null);
+
   const testimonials = [
     {
       industry: "Retail & E-commerce",
@@ -44,32 +46,59 @@ export default function TestimonialsSlider() {
     <section className="py-20 bg-[#071426] relative overflow-hidden border-t border-[#162B48]/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0C1D36] border border-[#087EF5]/30 text-xs font-semibold text-[#BAE0FD]">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-            <span>AUTHENTIC PARTNERSHIPS & CLIENT INTEGRITY</span>
+        {/* Section Header with Custom Arrows */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 text-left">
+          <div className="space-y-3 max-w-2xl">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0C1D36] border border-[#087EF5]/30 text-xs font-semibold text-[#BAE0FD]">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+              <span>AUTHENTIC PARTNERSHIPS & CLIENT INTEGRITY</span>
+            </div>
+
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+              Built on Trust, Delivered with{' '}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#087EF5] via-[#48A7FF] to-[#00D2FF]">
+                Integrity.
+              </span>
+            </h2>
+
+            <p className="text-sm sm:text-base text-slate-300 font-normal leading-relaxed">
+              We value genuine client relationships over fabricated testimonials. Swipe through our feedback and verified deliverable framework for businesses in AP & Telangana.
+            </p>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-            Built on Trust, Delivered with{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#087EF5] via-[#48A7FF] to-[#00D2FF]">
-              Integrity.
-            </span>
-          </h2>
+          {/* Custom Sleek Controls */}
+          <div className="flex items-center gap-3 self-start md:self-auto shrink-0">
+            <button
+              type="button"
+              onClick={() => swiperRef.current?.slidePrev()}
+              className="w-11 h-11 rounded-xl bg-[#0B192E] border border-[#162B48] hover:border-[#087EF5] hover:bg-[#087EF5] text-slate-300 hover:text-white flex items-center justify-center transition-all duration-200 shadow-md group cursor-pointer active:scale-95"
+              aria-label="Previous Review"
+              title="Previous Review"
+            >
+              <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
+            </button>
 
-          <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
-            We value genuine client relationships over fabricated testimonials. Swipe through our feedback and verified deliverable framework for businesses in AP & Telangana.
-          </p>
+            <button
+              type="button"
+              onClick={() => swiperRef.current?.slideNext()}
+              className="w-11 h-11 rounded-xl bg-[#0B192E] border border-[#162B48] hover:border-[#087EF5] hover:bg-[#087EF5] text-slate-300 hover:text-white flex items-center justify-center transition-all duration-200 shadow-md group cursor-pointer active:scale-95"
+              aria-label="Next Review"
+              title="Next Review"
+            >
+              <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+            </button>
+          </div>
         </div>
 
-        {/* Swiper Slider */}
-        <div className="relative pb-10">
+        {/* Swiper Slider without clumsy side arrows */}
+        <div className="relative pb-6">
           <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
+            onBeforeInit={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            modules={[Pagination, Autoplay]}
             spaceBetween={24}
             slidesPerView={1}
-            navigation
             pagination={{ clickable: true }}
             autoplay={{ delay: 6000, disableOnInteraction: false, pauseOnMouseEnter: true }}
             breakpoints={{

@@ -1,14 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay } from 'swiper/modules';
 import { PORTFOLIO_PROJECTS } from '../data/portfolioData';
-import { Layers, ChevronRight, FolderGit2, Sparkles } from 'lucide-react';
+import { Layers, ChevronRight, ChevronLeft, FolderGit2 } from 'lucide-react';
 import PortfolioModal from './PortfolioModal';
 import { useNavigate } from 'react-router-dom';
 
 export default function WorksSlider() {
   const [selectedProject, setSelectedProject] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const swiperRef = useRef(null);
   const navigate = useNavigate();
 
   const handleOpenProject = (project) => {
@@ -24,8 +25,8 @@ export default function WorksSlider() {
     <section className="py-16 bg-[#040C18] relative overflow-hidden border-t border-[#162B48]/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 text-left">
+        {/* Section Header with Custom Navigation Controls */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 text-left">
           <div className="space-y-3 max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF9900]/15 border border-[#FF9900]/30 text-xs font-bold text-[#FF9900]">
               <FolderGit2 className="w-3.5 h-3.5" />
@@ -40,22 +41,43 @@ export default function WorksSlider() {
             </h2>
 
             <p className="text-sm text-slate-300">
-              Drag or use the navigation arrows to inspect recent web engineering, SEO, and paid ad campaign architectures across AP & Telangana.
+              Drag or use the navigation controls to inspect recent web engineering, SEO, and paid ad campaign architectures across AP & Telangana.
             </p>
           </div>
 
-          <div className="flex items-center gap-2 self-start md:self-auto">
-            <span className="text-xs font-mono text-slate-400">Swipe to explore →</span>
+          {/* Premium Custom Arrow Controls (Placed cleanly in header, not covering slides) */}
+          <div className="flex items-center gap-3 self-start md:self-auto shrink-0">
+            <button
+              type="button"
+              onClick={() => swiperRef.current?.slidePrev()}
+              className="w-11 h-11 rounded-xl bg-[#0B192E] border border-[#162B48] hover:border-[#087EF5] hover:bg-[#087EF5] text-slate-300 hover:text-white flex items-center justify-center transition-all duration-200 shadow-md group cursor-pointer active:scale-95"
+              aria-label="Previous Project"
+              title="Previous Slide"
+            >
+              <ChevronLeft className="w-5 h-5 group-hover:-translate-x-0.5 transition-transform" />
+            </button>
+
+            <button
+              type="button"
+              onClick={() => swiperRef.current?.slideNext()}
+              className="w-11 h-11 rounded-xl bg-[#0B192E] border border-[#162B48] hover:border-[#087EF5] hover:bg-[#087EF5] text-slate-300 hover:text-white flex items-center justify-center transition-all duration-200 shadow-md group cursor-pointer active:scale-95"
+              aria-label="Next Project"
+              title="Next Slide"
+            >
+              <ChevronRight className="w-5 h-5 group-hover:translate-x-0.5 transition-transform" />
+            </button>
           </div>
         </div>
 
-        {/* Swiper Slider */}
-        <div className="relative pb-12">
+        {/* Swiper Slider without clumsy overlay arrows */}
+        <div className="relative pb-6">
           <Swiper
-            modules={[Navigation, Pagination, Autoplay]}
+            onBeforeInit={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            modules={[Pagination, Autoplay]}
             spaceBetween={24}
             slidesPerView={1}
-            navigation
             pagination={{ clickable: true }}
             autoplay={{ delay: 5000, disableOnInteraction: false, pauseOnMouseEnter: true }}
             breakpoints={{
