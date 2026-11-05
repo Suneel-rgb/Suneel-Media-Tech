@@ -8,7 +8,7 @@ export default function SmoothScroll({ children }) {
   const location = useLocation();
 
   useEffect(() => {
-    // Initialize Lenis Smooth Scrolling (https://lenis.dev/)
+    // Official Lenis setup (https://lenis.dev/)
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -30,28 +30,33 @@ export default function SmoothScroll({ children }) {
     }
     rafId = requestAnimationFrame(raf);
 
+    // Make sure html class lenis is applied
+    document.documentElement.classList.add('lenis', 'lenis-smooth');
+
     return () => {
       cancelAnimationFrame(rafId);
       lenis.destroy();
       window.__lenis = null;
+      document.documentElement.classList.remove('lenis', 'lenis-smooth');
     };
   }, []);
 
-  // Handle route change & hash scrolling
+  // Handle route navigation & anchor links
   useEffect(() => {
     if (lenisRef.current) {
       if (location.hash) {
-        setTimeout(() => {
+        const timer = setTimeout(() => {
           const target = document.querySelector(location.hash);
           if (target) {
             lenisRef.current.scrollTo(target, { offset: -90, duration: 1.2 });
           }
-        }, 100);
+        }, 120);
+        return () => clearTimeout(timer);
       } else {
+        // Immediate scroll to top on new page navigation
         lenisRef.current.scrollTo(0, { immediate: true });
+        window.scrollTo(0, 0);
       }
-    } else {
-      window.scrollTo(0, 0);
     }
   }, [location.pathname, location.hash]);
 

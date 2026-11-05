@@ -1,4 +1,7 @@
 @import "tailwindcss";
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
 
 @theme {
   --color-brand-blue: #087EF5;
@@ -22,8 +25,28 @@
   color-scheme: dark;
 }
 
+/* Official Lenis Smooth Scroll Configuration (https://lenis.dev/) */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
 html {
-  scroll-behavior: smooth;
   font-family: var(--font-sans);
 }
 
@@ -104,4 +127,46 @@ body {
 
 .blue-glow {
   box-shadow: 0 4px 24px -2px rgba(8, 126, 245, 0.35);
+}
+
+/* Swiper Custom Theme Styling */
+.swiper-pagination-bullet {
+  background: #162B48 !important;
+  opacity: 0.8 !important;
+  width: 10px !important;
+  height: 10px !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #FF9900 !important;
+  opacity: 1 !important;
+  width: 26px !important;
+  border-radius: 5px !important;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: #087EF5 !important;
+  background: rgba(11, 25, 46, 0.85);
+  border: 1px solid #162B48;
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 12px;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+  font-size: 16px !important;
+  font-weight: 700;
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: #087EF5;
+  color: #FFFFFF !important;
+  border-color: #087EF5;
+  box-shadow: 0 0 16px rgba(8, 126, 245, 0.4);
 }

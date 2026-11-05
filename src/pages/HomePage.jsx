@@ -7,8 +7,8 @@ import About from '../components/About';
 import Services from '../components/Services';
 import WhyChooseUs from '../components/WhyChooseUs';
 import Process from '../components/Process';
-import Portfolio from '../components/Portfolio';
-import Testimonials from '../components/Testimonials';
+import WorksSlider from '../components/WorksSlider';
+import TestimonialsSlider from '../components/TestimonialsSlider';
 import FAQ from '../components/FAQ';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
@@ -35,7 +35,7 @@ export default function HomePage() {
         {/* Regional Coverage Strip for AP & Telangana */}
         <RegionalStrip />
 
-        {/* Services Showcase with Link to /services */}
+        {/* Services Grid with Link to /services */}
         <section className="relative">
           <Services onSelectServiceForContact={() => {}} />
           <div className="bg-[#071426] pb-12 text-center">
@@ -50,9 +50,9 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Selected Works with Link to /works */}
+        {/* Interactive Swiper Sliding Works Section */}
         <section className="relative">
-          <Portfolio onSelectServiceForContact={() => {}} />
+          <WorksSlider />
           <div className="bg-[#040C18] pb-12 text-center">
             <Link
               to="/works"
@@ -80,14 +80,14 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 5-Step Process Section */}
+        {/* 5-Step Working Process */}
         <Process onInquire={() => {}} />
 
         {/* Why Choose Us & Market Comparison Matrix */}
         <WhyChooseUs onInquire={() => {}} />
 
-        {/* Testimonials Framework & Trust Policy */}
-        <Testimonials onInquire={() => {}} />
+        {/* Interactive Swiper Sliding Testimonials Section */}
+        <TestimonialsSlider />
 
         {/* Searchable FAQ Accordion */}
         <FAQ />

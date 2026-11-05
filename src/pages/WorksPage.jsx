@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import FloatingWhatsApp from '../components/FloatingWhatsApp';
 import SEOHead from '../components/SEOHead';
 import PortfolioModal from '../components/PortfolioModal';
+import WorksSlider from '../components/WorksSlider';
 import { 
   PORTFOLIO_CATEGORIES, 
   PORTFOLIO_PROJECTS 
@@ -17,7 +18,8 @@ import {
   ChevronRight, 
   ShieldCheck,
   CheckCircle2,
-  MapPin
+  MapPin,
+  Sliders
 } from 'lucide-react';
 
 export default function WorksPage() {
@@ -88,11 +90,24 @@ export default function WorksPage() {
           </div>
         </section>
 
-        {/* Filter Tabs & Projects Grid */}
-        <section className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Swiper Interactive Slider Section */}
+        <WorksSlider />
+
+        {/* Filterable Catalog Section */}
+        <section className="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-[#162B48]/60">
           
+          <div className="text-left mb-8 space-y-2">
+            <h2 className="text-2xl font-bold text-white flex items-center gap-2">
+              <Sliders className="w-5 h-5 text-[#087EF5]" />
+              <span>Complete Deliverable Catalog by Category</span>
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-400">
+              Filter by specific capability to explore full challenge, solution, and technology breakdowns.
+            </p>
+          </div>
+
           {/* Filter Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
+          <div className="flex flex-wrap items-center justify-start gap-2 mb-10">
             {PORTFOLIO_CATEGORIES.map((cat) => {
               const isActive = activeCategory === cat.id;
               return (
@@ -217,7 +232,7 @@ export default function WorksPage() {
               Ready to Turn Your Business Into Our Next Success Story?
             </h3>
             <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto">
-              Partner with SUNEEL MEDIA TECH to architect an authoritative website, rank #1 on Google, and accelerate your inbound sales.
+              Partner with SUNEEL MEDIA TECH to architect an authoritative website, rank #1 on Google, and accelerate your inbound sales across AP & Telangana.
             </p>
             <div>
               <Link
