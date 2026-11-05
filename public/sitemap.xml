@@ -7,37 +7,25 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://suneelmediatech.com/#about</loc>
-    <lastmod>2026-11-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://suneelmediatech.com/#services</loc>
+    <loc>https://suneelmediatech.com/services</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://suneelmediatech.com/#portfolio</loc>
+    <loc>https://suneelmediatech.com/works</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://suneelmediatech.com/about</loc>
+    <lastmod>2026-11-05</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://suneelmediatech.com/#process</loc>
-    <lastmod>2026-11-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://suneelmediatech.com/#faq</loc>
-    <lastmod>2026-11-05</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://suneelmediatech.com/#contact</loc>
+    <loc>https://suneelmediatech.com/contact</loc>
     <lastmod>2026-11-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>

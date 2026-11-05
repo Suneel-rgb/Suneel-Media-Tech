@@ -1,17 +1,11 @@
 import React from 'react';
-import { ArrowRight, Sparkles, TrendingUp, CheckCircle2, ShieldCheck, Zap, Globe, BarChart3, Layers, Code, Award } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, Sparkles, TrendingUp, CheckCircle2, ShieldCheck, Zap, Globe, BarChart3, Layers, Code, Award, MapPin } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 
-export default function Hero({ onExploreServices }) {
-  const handleScroll = (href) => {
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
+export default function Hero() {
   return (
-    <section id="home" className="relative pt-6 pb-20 md:py-24 overflow-hidden bg-radial-glow">
+    <section className="relative pt-6 pb-20 md:py-24 overflow-hidden bg-radial-glow">
       {/* Background Ambience & Grid */}
       <div className="absolute inset-0 pointer-events-none opacity-20">
         <div 
@@ -38,7 +32,7 @@ export default function Hero({ onExploreServices }) {
               <span className="flex h-2 w-2 rounded-full bg-[#FF9900] animate-ping" />
               <span className="text-white font-bold tracking-wide">SUNEEL MEDIA TECH</span>
               <span className="text-[#087EF5]">•</span>
-              <span className="text-slate-300">Your Digital Growth Partner</span>
+              <span className="text-slate-300">Andhra Pradesh & Telangana</span>
             </div>
 
             {/* Main Headline */}
@@ -51,7 +45,7 @@ export default function Hero({ onExploreServices }) {
 
             {/* Description */}
             <p className="text-lg sm:text-xl text-slate-300 max-w-2xl font-normal leading-relaxed">
-              We help businesses grow through innovative websites, strategic digital marketing and creative solutions that deliver measurable results.
+              We help businesses grow across <strong className="text-white">Andhra Pradesh & Telangana</strong> through innovative websites, strategic digital marketing and creative solutions that deliver measurable results.
             </p>
 
             {/* Key Value Checklist */}
@@ -62,7 +56,7 @@ export default function Hero({ onExploreServices }) {
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-5 h-5 text-[#FF9900] shrink-0" />
-                <span>Rank #1 with Local & National SEO</span>
+                <span>Rank #1 with Local & Regional SEO (AP & TG)</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <CheckCircle2 className="w-5 h-5 text-[#087EF5] shrink-0" />
@@ -76,32 +70,27 @@ export default function Hero({ onExploreServices }) {
 
             {/* CTA Buttons */}
             <div className="pt-4 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-              <button
-                type="button"
-                onClick={() => handleScroll('#contact')}
-                className="flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[#FF9900] hover:bg-[#E68A00] text-slate-950 font-bold text-base tracking-wide shadow-xl shadow-[#FF9900]/30 hover:shadow-2xl hover:shadow-[#FF9900]/50 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 group cursor-pointer"
+              <Link
+                to="/contact"
+                className="flex items-center justify-center gap-3 px-8 py-4 rounded-xl bg-[#FF9900] hover:bg-[#E68A00] text-slate-950 font-bold text-base tracking-wide shadow-xl shadow-[#FF9900]/30 hover:shadow-2xl hover:shadow-[#FF9900]/50 transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0 group"
               >
                 <span>Let's Grow Your Business</span>
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
 
-              <button
-                type="button"
-                onClick={() => {
-                  if (onExploreServices) onExploreServices();
-                  else handleScroll('#services');
-                }}
-                className="flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-[#0C1D36] hover:bg-[#162B48] text-white font-semibold text-base border border-[#162B48] hover:border-[#087EF5]/50 transition-all duration-200 cursor-pointer"
+              <Link
+                to="/services"
+                className="flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-[#0C1D36] hover:bg-[#162B48] text-white font-semibold text-base border border-[#162B48] hover:border-[#087EF5]/50 transition-all duration-200"
               >
                 <Sparkles className="w-5 h-5 text-[#087EF5]" />
                 <span>Explore Our Services</span>
-              </button>
+              </Link>
             </div>
 
             {/* Local Trust Signal */}
-            <div className="pt-2 flex items-center gap-3 text-xs text-slate-400">
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span>Headquartered in Guntur, Andhra Pradesh • Serving Businesses Pan-India & Globally</span>
+            <div className="pt-2 flex items-center gap-2.5 text-xs text-slate-400">
+              <MapPin className="w-4 h-4 text-emerald-400 shrink-0" />
+              <span>Strategy HQ in Guntur, AP • Serving Hyderabad, Vijayawada, Vizag & Pan-AP/Telangana</span>
             </div>
 
           </div>
@@ -125,7 +114,7 @@ export default function Hero({ onExploreServices }) {
                 </div>
                 <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[11px] font-semibold text-emerald-400">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>LIVE CAMPAIGN</span>
+                  <span>ACTIVE AP & TG</span>
                 </div>
               </div>
 
@@ -142,7 +131,7 @@ export default function Hero({ onExploreServices }) {
 
                 <div className="p-3.5 rounded-xl bg-[#071426] border border-[#162B48]">
                   <div className="flex items-center justify-between text-xs text-slate-400">
-                    <span>Ads Target ROAS</span>
+                    <span>Target ROAS</span>
                     <Zap className="w-3.5 h-3.5 text-[#FF9900]" />
                   </div>
                   <div className="text-2xl font-black text-[#FF9900] mt-1">4.8x</div>
@@ -187,11 +176,11 @@ export default function Hero({ onExploreServices }) {
                 </div>
 
                 <div className="flex justify-between text-[10px] text-slate-400 font-mono border-t border-[#162B48]/80 pt-2">
-                  <span>Audit</span>
-                  <span>Strategy</span>
-                  <span>Launch</span>
-                  <span>Scale</span>
-                  <span className="text-[#FF9900] font-bold">Dominate</span>
+                  <span>Discover</span>
+                  <span>Strategize</span>
+                  <span>Design</span>
+                  <span>Develop</span>
+                  <span className="text-[#FF9900] font-bold">Grow</span>
                 </div>
               </div>
 
@@ -207,7 +196,7 @@ export default function Hero({ onExploreServices }) {
                   </span>
                   <span className="px-2.5 py-1 rounded-md bg-[#0C1D36] border border-[#162B48] text-xs text-slate-300 font-medium flex items-center gap-1.5">
                     <Globe className="w-3 h-3 text-emerald-400" />
-                    Local SEO Guntur
+                    Local SEO AP & TG
                   </span>
                   <span className="px-2.5 py-1 rounded-md bg-[#0C1D36] border border-[#162B48] text-xs text-slate-300 font-medium flex items-center gap-1.5">
                     <Layers className="w-3 h-3 text-[#FF9900]" />
@@ -215,12 +204,12 @@ export default function Hero({ onExploreServices }) {
                   </span>
                   <span className="px-2.5 py-1 rounded-md bg-[#0C1D36] border border-[#162B48] text-xs text-slate-300 font-medium flex items-center gap-1.5">
                     <Award className="w-3 h-3 text-cyan-400" />
-                    High-End Branding
+                    Premium Branding
                   </span>
                 </div>
               </div>
 
-              {/* Floating Bottom Card: Performance Guarantee */}
+              {/* Performance Guarantee */}
               <div className="p-3 rounded-xl bg-gradient-to-r from-[#087EF5]/15 to-[#FF9900]/15 border border-[#087EF5]/30 flex items-center gap-3">
                 <div className="w-9 h-9 rounded-lg bg-[#087EF5] flex items-center justify-center shrink-0">
                   <ShieldCheck className="w-5 h-5 text-white" />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { 
   ArrowUp, 
   Mail, 
@@ -7,21 +8,26 @@ import {
   Heart, 
   Globe, 
   Sparkles,
-  ExternalLink
+  ExternalLink,
+  Building2
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
 import { SERVICES_DATA } from '../data/servicesData';
 
-export default function Footer({ onNavigate }) {
+export default function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (window.__lenis) {
+      window.__lenis.scrollTo(0, { duration: 1.2 });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-[#030A14] text-slate-400 border-t border-[#162B48] relative overflow-hidden">
-      {/* Top Pre-Footer Strip */}
+      {/* Top Pre-Footer Regional Strip */}
       <div className="bg-[#071426]/70 border-b border-[#162B48]/60 py-8 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <div className="flex items-center gap-4">
@@ -32,21 +38,21 @@ export default function Footer({ onNavigate }) {
             />
             <div>
               <div className="text-white font-extrabold text-lg">
-                Ready to dominate your digital market?
+                Ready to dominate your market in AP & Telangana?
               </div>
               <div className="text-xs text-slate-400">
-                {COMPANY_INFO.primaryTagline || COMPANY_INFO.tagline} • Serving Guntur, Andhra Pradesh & International Clients.
+                {COMPANY_INFO.primaryTagline || COMPANY_INFO.tagline} • Serving Guntur, Hyderabad, Vijayawada, Vizag & Global Clients.
               </div>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="px-6 py-2.5 rounded-xl bg-[#FF9900] hover:bg-[#E68A00] text-slate-950 font-bold text-xs shadow-md transition-all whitespace-nowrap"
             >
               Get Free Growth Audit
-            </a>
+            </Link>
             <a
               href={`https://wa.me/${COMPANY_INFO.contact.whatsappNumber}`}
               target="_blank"
@@ -63,18 +69,18 @@ export default function Footer({ onNavigate }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10">
           
-          {/* Column 1: Brand & Bio (4 cols) */}
+          {/* Column 1: Brand & Regional Focus (4 cols) */}
           <div className="lg:col-span-4 space-y-5 text-left">
-            <a href="#home" className="inline-block">
+            <Link to="/" className="inline-block">
               <img
                 src="/suneel-logo-tight.png"
                 alt="SUNEEL MEDIA TECH"
                 className="h-10 w-auto object-contain"
               />
-            </a>
+            </Link>
 
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              <strong className="text-white">SUNEEL MEDIA TECH</strong> is a premier digital marketing agency and technology partner based in Guntur, Andhra Pradesh. We engineer custom high-speed websites, dominate search engine rankings, and scale paid acquisition funnels for ambitious brands.
+              <strong className="text-white">SUNEEL MEDIA TECH</strong> is a premier digital marketing agency and technology partner based in Guntur, Andhra Pradesh, with consulting reach across Hyderabad and Telangana. We engineer custom high-speed websites, dominate search rankings, and scale paid acquisition funnels.
             </p>
 
             <div className="space-y-1 text-xs text-slate-400">
@@ -124,40 +130,37 @@ export default function Footer({ onNavigate }) {
             </div>
           </div>
 
-          {/* Column 2: Quick Links (2 cols) */}
+          {/* Column 2: Navigation Links (2 cols) */}
           <div className="lg:col-span-2 space-y-4 text-left">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Navigation
+              Pages
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm">
               <li>
-                <a href="#home" className="hover:text-white transition-colors">Home</a>
+                <Link to="/" className="hover:text-white transition-colors">Home</Link>
               </li>
               <li>
-                <a href="#about" className="hover:text-white transition-colors">About Us</a>
+                <Link to="/services" className="hover:text-white transition-colors">Services</Link>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition-colors">All Services</a>
+                <Link to="/works" className="hover:text-white transition-colors">Works & Portfolio</Link>
               </li>
               <li>
-                <a href="#why-us" className="hover:text-white transition-colors">Why Choose Us</a>
+                <Link to="/about" className="hover:text-white transition-colors">About Us</Link>
               </li>
               <li>
-                <a href="#process" className="hover:text-white transition-colors">Our Process</a>
+                <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
               </li>
               <li>
-                <a href="#portfolio" className="hover:text-white transition-colors">Portfolio / Work</a>
+                <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
               </li>
               <li>
-                <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
-              </li>
-              <li>
-                <a href="#contact" className="hover:text-white transition-colors">Contact Us</a>
+                <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
               </li>
             </ul>
           </div>
 
-          {/* Column 3: Specialized Services (3 cols) */}
+          {/* Column 3: Specialized Capabilities (3 cols) */}
           <div className="lg:col-span-3 space-y-4 text-left">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
               Core Capabilities
@@ -165,24 +168,29 @@ export default function Footer({ onNavigate }) {
             <ul className="space-y-2.5 text-xs sm:text-sm">
               {SERVICES_DATA.map((s) => (
                 <li key={s.id}>
-                  <a href="#services" className="hover:text-[#BAE0FD] transition-colors flex items-center justify-between">
+                  <Link to="/services" className="hover:text-[#BAE0FD] transition-colors flex items-center justify-between">
                     <span>{s.title}</span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Column 4: Contact & Location (3 cols) */}
+          {/* Column 4: Contact & Locations (3 cols) */}
           <div className="lg:col-span-3 space-y-4 text-left">
             <h4 className="text-xs font-bold uppercase tracking-wider text-white">
-              Guntur Office & Inquiries
+              Headquarters & Presence
             </h4>
 
             <div className="space-y-3 text-xs sm:text-sm">
               <div className="flex items-start gap-2.5">
                 <MapPin className="w-4 h-4 text-[#087EF5] shrink-0 mt-0.5" />
                 <span>{COMPANY_INFO.contact.address.full}</span>
+              </div>
+
+              <div className="flex items-center gap-2.5">
+                <Building2 className="w-4 h-4 text-[#FF9900] shrink-0" />
+                <span>Hyderabad, Telangana (Client Consulting)</span>
               </div>
 
               <div className="flex items-center gap-2.5">
@@ -208,10 +216,10 @@ export default function Footer({ onNavigate }) {
 
         </div>
 
-        {/* Local SEO Keywords Natural Strip */}
+        {/* Regional AP & Telangana Keywords Strip */}
         <div className="mt-12 pt-8 border-t border-[#162B48]/60 text-left">
-          <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-2">
-            Regional Focus Areas:
+          <div className="text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+            Target Service Regions (Andhra Pradesh & Telangana):
           </div>
           <div className="flex flex-wrap gap-2 text-[11px] text-slate-400">
             {COMPANY_INFO.seoKeywords.map((kw, idx) => (
@@ -225,17 +233,17 @@ export default function Footer({ onNavigate }) {
         {/* Bottom Legal & Copyright Bar */}
         <div className="mt-8 pt-6 border-t border-[#162B48] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div>
-            © {currentYear} <strong>SUNEEL MEDIA TECH</strong>. All rights reserved.
+            © {currentYear} <strong>SUNEEL MEDIA TECH</strong>. All rights reserved. • Powered by Lenis Smooth Scrolling.
           </div>
 
           <div className="flex items-center gap-6">
-            <a href="/privacy-policy" className="hover:text-slate-300 transition-colors">
+            <Link to="/privacy-policy" className="hover:text-slate-300 transition-colors">
               Privacy Policy
-            </a>
+            </Link>
             <span className="text-slate-700">•</span>
-            <a href="/terms" className="hover:text-slate-300 transition-colors">
+            <Link to="/terms" className="hover:text-slate-300 transition-colors">
               Terms & Conditions
-            </a>
+            </Link>
             <span className="text-slate-700">•</span>
             <button
               type="button"
