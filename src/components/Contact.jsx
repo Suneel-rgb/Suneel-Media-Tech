@@ -368,7 +368,7 @@ export default function Contact({ preselectedService }) {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="e.g. +91 98765 43210"
+                        placeholder="e.g. +91 96764 51721"
                         className={`w-full px-4 py-3 rounded-xl bg-[#071426] border text-sm text-white placeholder-slate-500 focus:outline-none transition-colors ${
                           errors.phone ? 'border-rose-500 focus:border-rose-500' : 'border-[#162B48] focus:border-[#087EF5]'
                         }`}

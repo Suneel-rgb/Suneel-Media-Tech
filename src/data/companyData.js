@@ -28,9 +28,9 @@ export const COMPANY_INFO = {
   // Contact Details (Configurable Placeholders)
   contact: {
     email: "contact@suneelmediatech.com",
-    phone: "+91 98765 43210",
-    phoneDisplay: "+91 98765 43210",
-    whatsappNumber: "919876543210",
+    phone: "+91 96764 51721",
+    phoneDisplay: "+91 96764 51721",
+    whatsappNumber: "919676451721",
     whatsappDefaultMessage: "Hello Suneel Media Tech! I want to discuss digital marketing and web development services for my business in AP/Telangana.",
     address: {
       street: "Main Commercial Hub, Brodipet",
@@ -52,7 +52,7 @@ export const COMPANY_INFO = {
     linkedin: "https://linkedin.com/company/suneelmediatech",
     twitter: "https://twitter.com/suneelmediatech",
     youtube: "https://youtube.com/@suneelmediatech",
-    whatsapp: "https://wa.me/919876543210",
+    whatsapp: "https://wa.me/919676451721",
   },
 
   // Verified Agency Highlights
