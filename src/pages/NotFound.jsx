@@ -1,6 +1,8 @@
 import React from 'react';
-import { Home, ArrowLeft, Search, MessageCircle } from 'lucide-react';
+import { Home, MessageCircle } from 'lucide-react';
 import { COMPANY_INFO } from '../data/companyData';
+
+const currentYear = new Date().getFullYear();
 
 export default function NotFound() {
   return (
@@ -64,7 +66,7 @@ export default function NotFound() {
 
       {/* Mini Footer */}
       <footer className="p-6 border-t border-[#162B48] text-center text-xs text-slate-500">
-        © {new Date().getFullYear()} SUNEEL MEDIA TECH • {COMPANY_INFO.tagline}
+        © {currentYear} SUNEEL MEDIA TECH • {COMPANY_INFO.tagline}
       </footer>
     </div>
   );

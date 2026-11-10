@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local Agent Harnesses & Binaries
+.agent/
+.agents/
+.claude/
+.codex/
+.gemini/
+*.exe
