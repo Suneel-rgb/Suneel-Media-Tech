@@ -135,26 +135,37 @@ export default function WorksPage() {
                 className="group rounded-2xl bg-[#0B192E] border border-[#162B48] hover:border-[#087EF5]/50 transition-all duration-300 flex flex-col justify-between overflow-hidden hover:shadow-2xl hover:shadow-[#087EF5]/15 hover:-translate-y-1.5"
               >
                 {/* Visual Header */}
-                <div className={`h-52 w-full bg-gradient-to-br ${project.gradient} p-6 flex flex-col justify-between relative overflow-hidden`}>
-                  <div className="flex items-center justify-between z-10">
-                    <span className="px-2.5 py-1 rounded-md bg-[#071426]/80 backdrop-blur-sm border border-white/10 text-[11px] font-semibold text-white">
-                      {project.categoryLabel}
-                    </span>
-                    <span className="text-[11px] font-medium text-slate-300 bg-black/40 px-2 py-0.5 rounded">
-                      {project.clientIndustry}
-                    </span>
-                  </div>
+                <div className="h-56 w-full relative overflow-hidden bg-[#071426]">
+                  {project.image ? (
+                    <>
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0B192E] via-[#0B192E]/40 to-black/30 pointer-events-none" />
+                    </>
+                  ) : (
+                    <div className={`h-full w-full bg-gradient-to-br ${project.gradient}`} />
+                  )}
 
-                  <div className="z-10">
-                    <div className="w-10 h-10 rounded-xl bg-[#071426]/90 border border-white/10 flex items-center justify-center text-white mb-2 shadow-lg">
-                      <Layers className="w-5 h-5 text-[#087EF5]" />
+                  <div className="absolute inset-0 p-5 flex flex-col justify-between z-10 text-left pointer-events-none">
+                    <div className="flex items-center justify-between">
+                      <span className="px-2.5 py-1 rounded-md bg-[#071426]/85 backdrop-blur-sm border border-white/10 text-[11px] font-semibold text-white">
+                        {project.categoryLabel}
+                      </span>
+                      <span className="text-[11px] font-medium text-slate-300 bg-black/50 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10">
+                        {project.clientIndustry}
+                      </span>
                     </div>
-                    <h3 className="text-lg font-bold text-white group-hover:text-[#BAE0FD] transition-colors leading-snug">
-                      {project.title}
-                    </h3>
-                  </div>
 
-                  <div className="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-white/5 pointer-events-none" />
+                    <div>
+                      <h3 className="text-lg font-bold text-white group-hover:text-[#BAE0FD] transition-colors leading-snug drop-shadow-md">
+                        {project.title}
+                      </h3>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Body */}

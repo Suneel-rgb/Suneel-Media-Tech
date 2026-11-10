@@ -44,17 +44,38 @@ export default function PortfolioModal({ project, isOpen, onClose, onStartSimila
           </p>
         </div>
 
-        {/* Project Visual Banner Placeholder */}
-        <div className={`w-full h-44 sm:h-56 rounded-xl bg-gradient-to-br ${project.gradient} border border-[#162B48] flex flex-col items-center justify-center p-6 text-center relative overflow-hidden`}>
-          <div className="w-16 h-16 rounded-2xl bg-[#071426]/80 border border-white/10 flex items-center justify-center mb-3 text-white shadow-xl">
-            <Layers className="w-8 h-8 text-[#087EF5]" />
-          </div>
-          <div className="text-base sm:text-lg font-bold text-white max-w-md">
-            {project.summary}
-          </div>
-          <div className="text-[11px] font-mono text-slate-400 mt-2">
-            Project Blueprint & Technical Architecture
-          </div>
+        {/* Project Visual Banner */}
+        <div className="w-full h-52 sm:h-64 rounded-xl border border-[#162B48] relative overflow-hidden bg-[#071426]">
+          {project.image ? (
+            <>
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071426] via-[#071426]/40 to-black/30" />
+              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-left">
+                <span className="text-[11px] font-mono uppercase tracking-wider text-[#BAE0FD] font-semibold bg-[#071426]/90 px-2.5 py-1 rounded border border-[#162B48]">
+                  Verified Project Blueprint
+                </span>
+                <span className="text-[11px] font-mono text-slate-300 bg-[#071426]/90 px-2.5 py-1 rounded border border-[#162B48]">
+                  {project.technologies?.slice(0, 3).join(' • ')}
+                </span>
+              </div>
+            </>
+          ) : (
+            <div className={`w-full h-full bg-gradient-to-br ${project.gradient} flex flex-col items-center justify-center p-6 text-center`}>
+              <div className="w-16 h-16 rounded-2xl bg-[#071426]/80 border border-white/10 flex items-center justify-center mb-3 text-white shadow-xl">
+                <Layers className="w-8 h-8 text-[#087EF5]" />
+              </div>
+              <div className="text-base sm:text-lg font-bold text-white max-w-md">
+                {project.summary}
+              </div>
+              <div className="text-[11px] font-mono text-slate-400 mt-2">
+                Project Blueprint & Technical Architecture
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Challenge & Solution Grid */}

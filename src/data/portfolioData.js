@@ -28,6 +28,7 @@ export const PORTFOLIO_PROJECTS = [
     technologies: ["React.js", "Tailwind CSS", "Node.js", "Razorpay", "Vite"],
     colorAccent: "#087EF5",
     gradient: "from-blue-600/30 to-indigo-900/40",
+    image: "/work-ecommerce.jpg",
   },
   {
     id: "project-healthcare-seo",
@@ -49,6 +50,7 @@ export const PORTFOLIO_PROJECTS = [
     technologies: ["Google Search Console", "Google Business Profile", "Ahrefs", "Schema.org"],
     colorAccent: "#00D26A",
     gradient: "from-emerald-600/30 to-teal-950/40",
+    image: "/work-seo.jpg",
   },
   {
     id: "project-brand-identity",
@@ -70,6 +72,7 @@ export const PORTFOLIO_PROJECTS = [
     technologies: ["Adobe Illustrator", "Photoshop", "Figma", "Vector Suite"],
     colorAccent: "#FF9900",
     gradient: "from-amber-600/30 to-orange-950/40",
+    image: "/work-branding.jpg",
   },
   {
     id: "project-social-growth",
@@ -91,6 +94,7 @@ export const PORTFOLIO_PROJECTS = [
     technologies: ["Meta Business Suite", "CapCut Pro", "Canva Pro", "Audience Insights"],
     colorAccent: "#E1306C",
     gradient: "from-pink-600/30 to-rose-950/40",
+    image: "/work-ads.jpg",
   },
   {
     id: "project-lead-generation",
@@ -112,6 +116,7 @@ export const PORTFOLIO_PROJECTS = [
     technologies: ["Google Ads", "Meta Ads", "Google Tag Manager", "Landing Funnel"],
     colorAccent: "#087EF5",
     gradient: "from-blue-500/30 to-cyan-950/40",
+    image: "/work-ads.jpg",
   },
   {
     id: "project-corporate-portal",
@@ -133,5 +138,6 @@ export const PORTFOLIO_PROJECTS = [
     technologies: ["React.js", "Tailwind CSS", "Vite", "Lucide Icons"],
     colorAccent: "#6366F1",
     gradient: "from-indigo-600/30 to-slate-950/40",
+    image: "/work-ecommerce.jpg",
   },
 ];

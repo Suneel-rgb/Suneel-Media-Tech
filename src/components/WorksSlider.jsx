@@ -96,27 +96,38 @@ export default function WorksSlider() {
               <SwiperSlide key={project.id} className="h-auto">
                 <div className="h-full rounded-2xl bg-[#0B192E] border border-[#162B48] hover:border-[#087EF5]/50 transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-xl hover:-translate-y-1">
                   
-                  {/* Top Gradient Banner */}
-                  <div className={`h-48 w-full bg-gradient-to-br ${project.gradient} p-5 flex flex-col justify-between relative overflow-hidden`}>
-                    <div className="flex items-center justify-between z-10">
-                      <span className="px-2.5 py-0.5 rounded-md bg-[#071426]/85 backdrop-blur-sm border border-white/10 text-[11px] font-semibold text-white">
-                        {project.categoryLabel}
-                      </span>
-                      <span className="text-[10px] font-medium text-slate-300 bg-black/50 px-2 py-0.5 rounded">
-                        {project.clientIndustry}
-                      </span>
-                    </div>
+                  {/* Top Visual Banner */}
+                  <div className="h-52 w-full relative overflow-hidden bg-[#071426]">
+                    {project.image ? (
+                      <>
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          loading="lazy"
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-[#0B192E] via-[#0B192E]/40 to-black/30 pointer-events-none" />
+                      </>
+                    ) : (
+                      <div className={`h-full w-full bg-gradient-to-br ${project.gradient}`} />
+                    )}
 
-                    <div className="z-10 text-left">
-                      <div className="w-9 h-9 rounded-xl bg-[#071426]/90 border border-white/10 flex items-center justify-center text-white mb-2 shadow-lg">
-                        <Layers className="w-4 h-4 text-[#087EF5]" />
+                    <div className="absolute inset-0 p-5 flex flex-col justify-between z-10 text-left pointer-events-none">
+                      <div className="flex items-center justify-between">
+                        <span className="px-2.5 py-0.5 rounded-md bg-[#071426]/85 backdrop-blur-sm border border-white/10 text-[11px] font-semibold text-white">
+                          {project.categoryLabel}
+                        </span>
+                        <span className="text-[10px] font-medium text-slate-300 bg-black/50 backdrop-blur-sm px-2 py-0.5 rounded border border-white/10">
+                          {project.clientIndustry}
+                        </span>
                       </div>
-                      <h3 className="text-base font-bold text-white group-hover:text-[#BAE0FD] transition-colors leading-snug">
-                        {project.title}
-                      </h3>
-                    </div>
 
-                    <div className="absolute -right-6 -bottom-6 w-28 h-28 rounded-full bg-white/5 pointer-events-none" />
+                      <div>
+                        <h3 className="text-base font-bold text-white group-hover:text-[#BAE0FD] transition-colors leading-snug drop-shadow-md">
+                          {project.title}
+                        </h3>
+                      </div>
+                    </div>
                   </div>
 
                   {/* Body Content */}
