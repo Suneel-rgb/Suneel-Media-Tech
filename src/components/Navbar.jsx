@@ -16,7 +16,6 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setMobileMenuOpen(false);
   }, [location.pathname]);
@@ -30,10 +29,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
+      className={`sticky top-0 z-50 transition-colors duration-150 ${
         isScrolled
-          ? 'bg-[#071426]/95 backdrop-blur-md border-b border-[#162B48] shadow-xl py-3.5'
-          : 'bg-[#071426]/80 backdrop-blur-sm border-b border-[#162B48]/50 py-4.5'
+          ? 'bg-[#071426]/95 backdrop-blur-md border-b border-[#162B48] py-3.5'
+          : 'bg-[#071426] border-b border-[#162B48]/50 py-4'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,13 +41,13 @@ export default function Navbar() {
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-3 group focus:outline-none focus-visible:ring-2 focus-visible:ring-[#087EF5] rounded-lg"
+            className="flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#087EF5] rounded-md"
             aria-label="SUNEEL MEDIA TECH Home"
           >
             <img
               src="/suneel-logo-tight.png"
               alt="SUNEEL MEDIA TECH"
-              className="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]"
+              className="h-9 sm:h-10 w-auto object-contain"
             />
           </Link>
 
@@ -60,16 +59,13 @@ export default function Navbar() {
                 <NavLink
                   key={item.path}
                   to={item.path}
-                  className={`text-sm tracking-wide font-medium transition-colors duration-200 relative ${
+                  className={`text-sm tracking-normal transition-colors duration-150 ${
                     isActive
                       ? 'text-white font-semibold'
-                      : 'text-slate-300 hover:text-white'
+                      : 'text-slate-400 hover:text-white font-medium'
                   }`}
                 >
                   {item.label}
-                  {isActive && (
-                    <span className="absolute -bottom-1.5 left-0 right-0 h-0.5 bg-[#087EF5] rounded-full" />
-                  )}
                 </NavLink>
               );
             })}
@@ -79,10 +75,10 @@ export default function Navbar() {
           <div className="hidden md:flex items-center">
             <Link
               to="/contact"
-              className="group inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-[#FF9900] hover:bg-[#E68A00] text-slate-950 font-bold text-xs uppercase tracking-wider transition-all duration-200 shadow-md shadow-[#FF9900]/20 hover:shadow-lg hover:shadow-[#FF9900]/35 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900]"
+              className="group inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg bg-[#FF9900] hover:bg-[#E68A00] text-slate-950 font-semibold text-xs tracking-wide transition-colors duration-150 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#FF9900]"
             >
               <span>Let's Talk</span>
-              <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <ArrowUpRight className="w-4 h-4 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </Link>
           </div>
 
@@ -90,14 +86,14 @@ export default function Navbar() {
           <div className="flex items-center gap-3 md:hidden">
             <Link
               to="/contact"
-              className="px-4 py-2 rounded-full bg-[#FF9900] text-slate-950 font-bold text-xs uppercase tracking-wider"
+              className="px-4 py-2 rounded-lg bg-[#FF9900] text-slate-950 font-semibold text-xs tracking-wide"
             >
               Let's Talk
             </Link>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl bg-[#0B192E] border border-[#162B48] text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-[#087EF5]"
+              className="p-2 rounded-lg bg-[#0B192E] border border-[#162B48] text-slate-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-[#087EF5]"
               aria-label="Toggle navigation menu"
               aria-expanded={mobileMenuOpen}
             >
@@ -109,8 +105,8 @@ export default function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden fixed inset-x-0 top-full bg-[#071426]/98 backdrop-blur-xl border-b border-[#162B48] shadow-2xl px-6 py-6 transition-all duration-300">
-          <nav className="flex flex-col gap-1 pb-6 border-b border-[#162B48]/60">
+        <div className="md:hidden fixed inset-x-0 top-full bg-[#071426] border-b border-[#162B48] px-6 py-6 transition-colors duration-150">
+          <nav className="flex flex-col gap-1 pb-6 border-b border-[#162B48]">
             {navItems.map((item) => {
               const isActive = location.pathname === item.path;
               return (
@@ -118,10 +114,10 @@ export default function Navbar() {
                   key={item.path}
                   to={item.path}
                   onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium transition-all ${
+                  className={`flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium transition-colors duration-150 ${
                     isActive
-                      ? 'text-white bg-[#087EF5]/15 border border-[#087EF5]/30 font-semibold'
-                      : 'text-slate-300 hover:text-white hover:bg-white/5'
+                      ? 'text-white bg-[#0B192E] border border-[#162B48] font-semibold'
+                      : 'text-slate-300 hover:text-white hover:bg-[#0B192E]/50'
                   }`}
                 >
                   <span>{item.label}</span>
@@ -135,7 +131,7 @@ export default function Navbar() {
             <Link
               to="/contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 py-3.5 px-6 rounded-full bg-[#FF9900] hover:bg-[#E68A00] text-slate-950 font-bold text-sm uppercase tracking-wider shadow-lg shadow-[#FF9900]/25 transition-all text-center"
+              className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-lg bg-[#FF9900] hover:bg-[#E68A00] text-slate-950 font-semibold text-sm tracking-wide transition-colors duration-150 text-center"
             >
               <span>Let's Talk</span>
               <ArrowUpRight className="w-4 h-4" />

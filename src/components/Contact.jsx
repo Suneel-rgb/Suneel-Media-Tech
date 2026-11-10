@@ -69,7 +69,7 @@ export default function Contact({ preselectedService }) {
     if (!formData.projectDescription.trim()) {
       newErrors.projectDescription = 'Please provide a brief description of your project';
     } else if (formData.projectDescription.trim().length < 15) {
-      newErrors.projectDescription = 'Please provide a little more detail (at least 15 characters)';
+      newErrors.projectDescription = 'Please provide at least 15 characters of detail';
     }
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -88,11 +88,10 @@ export default function Contact({ preselectedService }) {
     if (!validate()) return;
 
     setIsSubmitting(true);
-    // Simulate API submission
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 1000);
+    }, 800);
   };
 
   const handleWhatsAppDirect = () => {
@@ -106,69 +105,69 @@ export default function Contact({ preselectedService }) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header: Let's Create What's Next */}
-        <div className="max-w-3xl space-y-4 text-left mb-16 sm:mb-20">
-          <span className="text-xs font-mono uppercase tracking-[0.2em] text-[#087EF5] font-semibold">
-            START A CONVERSATION
+        <div className="max-w-3xl space-y-4 text-left mb-14 sm:mb-16">
+          <span className="text-xs font-mono uppercase tracking-widest text-[#087EF5] font-medium">
+            Start a Conversation
           </span>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight font-heading">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight font-heading">
             Let's Create What's Next.
           </h2>
 
-          <p className="text-lg sm:text-xl text-slate-300 font-normal leading-relaxed">
+          <p className="text-base sm:text-lg text-slate-300 font-normal leading-relaxed">
             Have a project in mind? Let's make it happen.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
           {/* Left Column: Direct Agency Channels */}
           <div className="lg:col-span-5 space-y-6">
             
             {/* WhatsApp Direct Action */}
-            <div className="p-7 rounded-2xl bg-[#0B192E] border border-emerald-500/30 space-y-4 shadow-xl">
+            <div className="p-6 sm:p-7 rounded-xl bg-[#0B192E] border border-[#162B48] space-y-4 text-left">
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
-                  <MessageCircle className="w-6 h-6" />
+                <div className="w-10 h-10 rounded-lg bg-[#071426] text-emerald-400 border border-[#162B48] flex items-center justify-center">
+                  <MessageCircle className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-white">Instant WhatsApp Consultation</h3>
-                  <div className="text-xs text-emerald-400 font-medium">Fastest response • Online now</div>
+                  <h3 className="text-base font-semibold text-white">Direct WhatsApp Consultation</h3>
+                  <div className="text-xs text-slate-400">Guaranteed response within business hours</div>
                 </div>
               </div>
 
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                Prefer chatting directly? Skip the form and speak right away with our client director on WhatsApp to get immediate answers and estimates.
+                Prefer chatting directly? Skip the form and speak directly with our team on WhatsApp for immediate answers and estimates.
               </p>
 
               <button
                 type="button"
                 onClick={handleWhatsAppDirect}
-                className="w-full py-3.5 px-4 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-lg shadow-emerald-900/30 transition-all cursor-pointer"
+                className="w-full py-3 px-4 rounded-xl bg-[#071426] hover:bg-[#102442] border border-[#162B48] hover:border-emerald-500/60 text-slate-200 font-medium text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors duration-150 cursor-pointer"
               >
-                <MessageCircle className="w-4 h-4" />
+                <MessageCircle className="w-4 h-4 text-emerald-400" />
                 <span>Chat via WhatsApp</span>
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 text-slate-400" />
               </button>
             </div>
 
             {/* Direct Contact Cards */}
-            <div className="p-7 rounded-2xl bg-[#0B192E] border border-[#162B48] space-y-5">
-              <h3 className="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">
+            <div className="p-6 sm:p-7 rounded-xl bg-[#0B192E] border border-[#162B48] space-y-5 text-left">
+              <span className="text-xs font-mono uppercase tracking-wider text-slate-400 block font-medium">
                 Official Agency Touchpoints
-              </h3>
+              </span>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 <a
                   href={`tel:${COMPANY_INFO.contact.phone.replace(/\s+/g, '')}`}
-                  className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#071426] border border-[#162B48] hover:border-[#087EF5] transition-colors group"
+                  className="flex items-start gap-3 p-3 rounded-lg bg-[#071426] border border-[#162B48] hover:border-[#087EF5]/60 transition-colors duration-150 group"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-[#0C1D36] flex items-center justify-center text-[#FF9900] group-hover:scale-105 transition-transform shrink-0">
-                    <Phone className="w-5 h-5" />
+                  <div className="w-9 h-9 rounded-md bg-[#0B192E] flex items-center justify-center text-[#FF9900] shrink-0">
+                    <Phone className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-xs text-slate-400">Direct Phone Support</div>
-                    <div className="text-sm font-bold text-white group-hover:text-[#087EF5] transition-colors">
+                    <div className="text-xs text-slate-400">Direct Phone</div>
+                    <div className="text-sm font-semibold text-white group-hover:text-[#087EF5] transition-colors duration-150 tabular-nums">
                       {COMPANY_INFO.contact.phoneDisplay}
                     </div>
                   </div>
@@ -176,45 +175,45 @@ export default function Contact({ preselectedService }) {
 
                 <a
                   href={`mailto:${COMPANY_INFO.contact.email}`}
-                  className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#071426] border border-[#162B48] hover:border-[#087EF5] transition-colors group"
+                  className="flex items-start gap-3 p-3 rounded-lg bg-[#071426] border border-[#162B48] hover:border-[#087EF5]/60 transition-colors duration-150 group"
                 >
-                  <div className="w-10 h-10 rounded-lg bg-[#0C1D36] flex items-center justify-center text-[#087EF5] group-hover:scale-105 transition-transform shrink-0">
-                    <Mail className="w-5 h-5" />
+                  <div className="w-9 h-9 rounded-md bg-[#0B192E] flex items-center justify-center text-[#087EF5] shrink-0">
+                    <Mail className="w-4 h-4" />
                   </div>
                   <div>
                     <div className="text-xs text-slate-400">Official Inquiries</div>
-                    <div className="text-sm font-bold text-white group-hover:text-[#087EF5] transition-colors">
+                    <div className="text-sm font-semibold text-white group-hover:text-[#087EF5] transition-colors duration-150">
                       {COMPANY_INFO.contact.email}
                     </div>
                   </div>
                 </a>
 
-                <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#071426] border border-[#162B48]">
-                  <div className="w-10 h-10 rounded-lg bg-[#0C1D36] flex items-center justify-center text-cyan-400 shrink-0">
-                    <MapPin className="w-5 h-5" />
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-[#071426] border border-[#162B48]">
+                  <div className="w-9 h-9 rounded-md bg-[#0B192E] flex items-center justify-center text-slate-400 shrink-0">
+                    <MapPin className="w-4 h-4" />
                   </div>
                   <div>
                     <div className="text-xs text-slate-400">Agency Headquarters</div>
-                    <div className="text-sm font-bold text-white">
+                    <div className="text-sm font-medium text-white">
                       {COMPANY_INFO.contact.address.full}
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3.5 p-3.5 rounded-xl bg-[#071426] border border-[#162B48]">
-                  <div className="w-10 h-10 rounded-lg bg-[#0C1D36] flex items-center justify-center text-amber-400 shrink-0">
-                    <Clock className="w-5 h-5" />
+                <div className="flex items-start gap-3 p-3 rounded-lg bg-[#071426] border border-[#162B48]">
+                  <div className="w-9 h-9 rounded-md bg-[#0B192E] flex items-center justify-center text-slate-400 shrink-0">
+                    <Clock className="w-4 h-4" />
                   </div>
                   <div>
                     <div className="text-xs text-slate-400">Working Hours</div>
-                    <div className="text-sm font-bold text-white">
+                    <div className="text-sm font-medium text-white tabular-nums">
                       {COMPANY_INFO.contact.workingHours}
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="pt-2 text-xs text-slate-400 flex items-center gap-2">
+              <div className="pt-2 text-xs text-slate-400 flex items-center gap-2 border-t border-[#162B48]/60">
                 <ShieldCheck className="w-4 h-4 text-[#087EF5] shrink-0" />
                 <span>Non-Disclosure & Confidentiality Assured</span>
               </div>
@@ -224,24 +223,24 @@ export default function Contact({ preselectedService }) {
 
           {/* Right Column: Lead Generation Form */}
           <div className="lg:col-span-7">
-            <div className="p-7 sm:p-10 rounded-2xl bg-[#0B192E] border border-[#162B48] shadow-2xl relative">
+            <div className="p-6 sm:p-8 rounded-xl bg-[#0B192E] border border-[#162B48] relative">
               
               {isSubmitted ? (
                 /* Success Feedback State */
-                <div className="py-12 text-center space-y-5 animate-fade-in">
-                  <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/30">
-                    <CheckCircle2 className="w-10 h-10" />
+                <div className="py-12 text-center space-y-4">
+                  <div className="w-12 h-12 rounded-full bg-emerald-500/10 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/30">
+                    <CheckCircle2 className="w-7 h-7" />
                   </div>
 
-                  <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
-                    Project Inquiry Received!
+                  <h3 className="text-2xl font-bold text-white">
+                    Project Inquiry Received
                   </h3>
 
-                  <p className="text-sm sm:text-base text-slate-300 max-w-md mx-auto leading-relaxed">
-                    Thank you, <strong className="text-white">{formData.fullName}</strong>. We have received your inquiry for <span className="text-[#FF9900] font-semibold">{formData.requiredService}</span>. A senior strategist from Suneel Media Tech will review your business requirements and connect with you within 2 hours.
+                  <p className="text-sm text-slate-300 max-w-md mx-auto leading-relaxed">
+                    Thank you, <strong className="text-white">{formData.fullName}</strong>. We have received your inquiry for <span className="text-[#087EF5] font-medium">{formData.requiredService}</span>. A senior strategist from Suneel Media Tech will review your business requirements and connect with you within 2 business hours.
                   </p>
 
-                  <div className="p-4 rounded-xl bg-[#071426] border border-[#162B48] max-w-md mx-auto text-left text-xs text-slate-300 space-y-1">
+                  <div className="p-4 rounded-lg bg-[#071426] border border-[#162B48] max-w-md mx-auto text-left text-xs text-slate-300 space-y-1">
                     <div><strong>Business:</strong> {formData.businessName}</div>
                     <div><strong>Email:</strong> {formData.email}</div>
                     <div><strong>Phone:</strong> {formData.phone}</div>
@@ -251,14 +250,14 @@ export default function Contact({ preselectedService }) {
                     <button
                       type="button"
                       onClick={() => setIsSubmitted(false)}
-                      className="px-6 py-2.5 rounded-full bg-[#0C1D36] border border-[#162B48] text-slate-300 hover:text-white text-xs font-semibold"
+                      className="px-5 py-2.5 rounded-lg bg-[#071426] border border-[#162B48] text-slate-300 hover:text-white text-xs font-medium transition-colors duration-150"
                     >
                       Submit Another Inquiry
                     </button>
                     <button
                       type="button"
                       onClick={handleWhatsAppDirect}
-                      className="px-6 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center gap-2"
+                      className="px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold flex items-center gap-2 transition-colors duration-150"
                     >
                       <MessageCircle className="w-4 h-4" />
                       <span>Speed Up via WhatsApp</span>
@@ -267,12 +266,12 @@ export default function Contact({ preselectedService }) {
                 </div>
               ) : (
                 /* The Actual Form */
-                <form onSubmit={handleSubmit} className="space-y-5 text-left" noValidate>
+                <form onSubmit={handleSubmit} className="space-y-4 text-left" noValidate>
                   <div className="border-b border-[#162B48] pb-4 mb-2">
                     <h3 className="text-xl sm:text-2xl font-bold text-white">
                       Start a Project
                     </h3>
-                    <p className="text-xs sm:text-sm text-slate-400 mt-1">
+                    <p className="text-xs text-slate-400 mt-1">
                       Tell us about your brand goals and we will tailor the ideal solution.
                     </p>
                   </div>
@@ -280,7 +279,7 @@ export default function Contact({ preselectedService }) {
                   {/* Row 1: Full Name & Business Name */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="contact-fullName" className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
+                      <label htmlFor="contact-fullName" className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5 font-medium">
                         Full Name <span className="text-[#FF9900]">*</span>
                       </label>
                       <input
@@ -290,7 +289,7 @@ export default function Contact({ preselectedService }) {
                         value={formData.fullName}
                         onChange={handleChange}
                         placeholder="e.g. Ramesh Kumar"
-                        className={`w-full px-4 py-3 rounded-xl bg-[#071426] border text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#087EF5] transition-colors ${
+                        className={`w-full px-3.5 py-2.5 rounded-lg bg-[#071426] border text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#087EF5] transition-colors duration-150 ${
                           errors.fullName ? 'border-rose-500' : 'border-[#162B48]'
                         }`}
                       />
@@ -303,8 +302,8 @@ export default function Contact({ preselectedService }) {
                     </div>
 
                     <div>
-                      <label htmlFor="contact-businessName" className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
-                        Business / Brand Name <span className="text-[#FF9900]">*</span>
+                      <label htmlFor="contact-businessName" className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5 font-medium">
+                        Business Name <span className="text-[#FF9900]">*</span>
                       </label>
                       <input
                         id="contact-businessName"
@@ -313,7 +312,7 @@ export default function Contact({ preselectedService }) {
                         value={formData.businessName}
                         onChange={handleChange}
                         placeholder="e.g. Sri Balaji Enterprises"
-                        className={`w-full px-4 py-3 rounded-xl bg-[#071426] border text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#087EF5] transition-colors ${
+                        className={`w-full px-3.5 py-2.5 rounded-lg bg-[#071426] border text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#087EF5] transition-colors duration-150 ${
                           errors.businessName ? 'border-rose-500' : 'border-[#162B48]'
                         }`}
                       />
@@ -329,7 +328,7 @@ export default function Contact({ preselectedService }) {
                   {/* Row 2: Email & Phone */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="contact-email" className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
+                      <label htmlFor="contact-email" className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5 font-medium">
                         Email Address <span className="text-[#FF9900]">*</span>
                       </label>
                       <input
@@ -339,7 +338,7 @@ export default function Contact({ preselectedService }) {
                         value={formData.email}
                         onChange={handleChange}
                         placeholder="e.g. contact@yourbusiness.com"
-                        className={`w-full px-4 py-3 rounded-xl bg-[#071426] border text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#087EF5] transition-colors ${
+                        className={`w-full px-3.5 py-2.5 rounded-lg bg-[#071426] border text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#087EF5] transition-colors duration-150 ${
                           errors.email ? 'border-rose-500' : 'border-[#162B48]'
                         }`}
                       />
@@ -352,7 +351,7 @@ export default function Contact({ preselectedService }) {
                     </div>
 
                     <div>
-                      <label htmlFor="contact-phone" className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
+                      <label htmlFor="contact-phone" className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5 font-medium">
                         Phone Number <span className="text-[#FF9900]">*</span>
                       </label>
                       <input
@@ -362,7 +361,7 @@ export default function Contact({ preselectedService }) {
                         value={formData.phone}
                         onChange={handleChange}
                         placeholder="e.g. +91 96764 51721"
-                        className={`w-full px-4 py-3 rounded-xl bg-[#071426] border text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#087EF5] transition-colors ${
+                        className={`w-full px-3.5 py-2.5 rounded-lg bg-[#071426] border text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#087EF5] transition-colors duration-150 ${
                           errors.phone ? 'border-rose-500' : 'border-[#162B48]'
                         }`}
                       />
@@ -378,7 +377,7 @@ export default function Contact({ preselectedService }) {
                   {/* Row 3: Service Selection & Budget */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label htmlFor="contact-service" className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
+                      <label htmlFor="contact-service" className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5 font-medium">
                         Required Service
                       </label>
                       <select
@@ -386,7 +385,7 @@ export default function Contact({ preselectedService }) {
                         name="requiredService"
                         value={formData.requiredService}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl bg-[#071426] border border-[#162B48] text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#087EF5] transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-[#071426] border border-[#162B48] text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#087EF5] transition-colors duration-150"
                       >
                         {SERVICE_OPTIONS.map((srv, idx) => (
                           <option key={idx} value={srv} className="bg-[#071426] text-white">
@@ -397,7 +396,7 @@ export default function Contact({ preselectedService }) {
                     </div>
 
                     <div>
-                      <label htmlFor="contact-budget" className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
+                      <label htmlFor="contact-budget" className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5 font-medium">
                         Budget Range
                       </label>
                       <select
@@ -405,7 +404,7 @@ export default function Contact({ preselectedService }) {
                         name="budgetRange"
                         value={formData.budgetRange}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl bg-[#071426] border border-[#162B48] text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#087EF5] transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-lg bg-[#071426] border border-[#162B48] text-sm text-white focus:outline-none focus:ring-2 focus:ring-[#087EF5] transition-colors duration-150"
                       >
                         {BUDGET_OPTIONS.map((bg, idx) => (
                           <option key={idx} value={bg} className="bg-[#071426] text-white">
@@ -418,17 +417,17 @@ export default function Contact({ preselectedService }) {
 
                   {/* Row 4: Project Description */}
                   <div>
-                    <label htmlFor="contact-description" className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5">
-                      Project Description & Requirements <span className="text-[#FF9900]">*</span>
+                    <label htmlFor="contact-description" className="block text-xs font-mono uppercase tracking-wider text-slate-300 mb-1.5 font-medium">
+                      Project Description <span className="text-[#FF9900]">*</span>
                     </label>
                     <textarea
                       id="contact-description"
                       name="projectDescription"
-                      rows={4}
+                      rows={3}
                       value={formData.projectDescription}
                       onChange={handleChange}
-                      placeholder="Briefly describe what your business does, your current website (if any), target timeline, and what you aim to achieve..."
-                      className={`w-full px-4 py-3 rounded-xl bg-[#071426] border text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#087EF5] transition-colors resize-none ${
+                      placeholder="Briefly describe what your business does, your target timeline, and goals..."
+                      className={`w-full px-3.5 py-2.5 rounded-lg bg-[#071426] border text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-[#087EF5] transition-colors duration-150 resize-none ${
                         errors.projectDescription ? 'border-rose-500' : 'border-[#162B48]'
                       }`}
                     />
@@ -445,7 +444,7 @@ export default function Contact({ preselectedService }) {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full py-4 px-6 rounded-full bg-[#FF9900] hover:bg-[#E68A00] text-slate-950 font-bold text-sm uppercase tracking-wider shadow-lg shadow-[#FF9900]/25 hover:shadow-xl hover:shadow-[#FF9900]/40 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                      className="w-full py-3.5 px-6 rounded-xl bg-[#FF9900] hover:bg-[#E68A00] text-slate-950 font-semibold text-sm tracking-wide transition-colors duration-150 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                     >
                       {isSubmitting ? (
                         <>
@@ -461,8 +460,8 @@ export default function Contact({ preselectedService }) {
                     </button>
                   </div>
 
-                  <div className="text-center text-[11px] text-slate-400 pt-1">
-                    🔒 No spam. Your information is protected and never shared with third parties.
+                  <div className="text-center text-[11px] text-slate-500 pt-1">
+                    Your information is protected under standard agency confidentiality.
                   </div>
                 </form>
               )}

@@ -12,7 +12,7 @@ import { COMPANY_INFO } from '../data/companyData';
 export default function Footer() {
   const scrollToTop = () => {
     if (window.__lenis) {
-      window.__lenis.scrollTo(0, { duration: 1.2 });
+      window.__lenis.scrollTo(0, { duration: 1.0 });
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -25,51 +25,51 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         
         {/* Main Grid: 4 Clean Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 border-b border-[#162B48]/60">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-[#162B48]/60 text-left">
           
           {/* Col 1: Brand & Statement (5 cols) */}
-          <div className="lg:col-span-5 space-y-6 text-left">
+          <div className="lg:col-span-5 space-y-5">
             <Link to="/" className="inline-block" aria-label="SUNEEL MEDIA TECH Home">
               <img
                 src="/suneel-logo-tight.png"
                 alt="SUNEEL MEDIA TECH"
-                className="h-10 w-auto object-contain"
+                className="h-9 w-auto object-contain"
               />
             </Link>
 
             <p className="text-sm text-slate-300 leading-relaxed max-w-sm">
-              A modern digital growth and technology partner helping businesses build, strengthen, and scale their digital presence.
+              A digital growth and technology partner helping businesses build, strengthen, and scale their digital presence.
             </p>
 
-            <div className="flex items-center gap-3 pt-2 text-xs font-mono text-slate-400">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <div className="flex items-center gap-2 pt-1 text-xs font-mono text-slate-400">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
               <span>Guntur HQ • Hyderabad Consulting • AP & Telangana</span>
             </div>
           </div>
 
           {/* Col 2: Navigation (2 cols) */}
-          <div className="lg:col-span-2 space-y-4 text-left">
-            <span className="text-xs font-mono uppercase tracking-[0.18em] text-[#087EF5] font-semibold block">
-              NAVIGATION
+          <div className="lg:col-span-2 space-y-4">
+            <span className="text-xs font-mono uppercase tracking-wider text-[#087EF5] font-semibold block">
+              Navigation
             </span>
             <ul className="space-y-2.5 text-sm">
               <li>
-                <Link to="/about" className="hover:text-white transition-colors">
+                <Link to="/about" className="hover:text-white transition-colors duration-150">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="hover:text-white transition-colors">
+                <Link to="/services" className="hover:text-white transition-colors duration-150">
                   Services
                 </Link>
               </li>
               <li>
-                <Link to="/works" className="hover:text-white transition-colors">
+                <Link to="/works" className="hover:text-white transition-colors duration-150">
                   Selected Work
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-white transition-colors">
+                <Link to="/contact" className="hover:text-white transition-colors duration-150">
                   Contact
                 </Link>
               </li>
@@ -77,14 +77,14 @@ export default function Footer() {
           </div>
 
           {/* Col 3: Direct Contact (3 cols) */}
-          <div className="lg:col-span-3 space-y-4 text-left">
-            <span className="text-xs font-mono uppercase tracking-[0.18em] text-[#087EF5] font-semibold block">
-              CONTACT
+          <div className="lg:col-span-3 space-y-4">
+            <span className="text-xs font-mono uppercase tracking-wider text-[#087EF5] font-semibold block">
+              Contact
             </span>
-            <div className="space-y-3 text-sm">
+            <div className="space-y-2.5 text-sm">
               <a
                 href={`tel:${COMPANY_INFO.contact.phone.replace(/\s+/g, '')}`}
-                className="flex items-center gap-2 hover:text-white transition-colors text-white font-medium"
+                className="flex items-center gap-2 hover:text-white transition-colors duration-150 text-white font-medium tabular-nums"
               >
                 <Phone className="w-4 h-4 text-[#FF9900]" />
                 <span>{COMPANY_INFO.contact.phoneDisplay}</span>
@@ -92,7 +92,7 @@ export default function Footer() {
 
               <a
                 href={`mailto:${COMPANY_INFO.contact.email}`}
-                className="flex items-center gap-2 hover:text-white transition-colors"
+                className="flex items-center gap-2 hover:text-white transition-colors duration-150"
               >
                 <Mail className="w-4 h-4 text-[#087EF5]" />
                 <span>{COMPANY_INFO.contact.email}</span>
@@ -105,17 +105,17 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 4: Socials & Back to Top (2 cols) */}
-          <div className="lg:col-span-2 space-y-4 text-left">
-            <span className="text-xs font-mono uppercase tracking-[0.18em] text-[#087EF5] font-semibold block">
-              CONNECT
+          {/* Col 4: Socials (2 cols) */}
+          <div className="lg:col-span-2 space-y-4">
+            <span className="text-xs font-mono uppercase tracking-wider text-[#087EF5] font-semibold block">
+              Connect
             </span>
             <div className="flex flex-col space-y-2 text-sm">
               <a
                 href={COMPANY_INFO.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between hover:text-white transition-colors"
+                className="flex items-center justify-between hover:text-white transition-colors duration-150"
               >
                 <span>Instagram</span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-slate-500" />
@@ -124,7 +124,7 @@ export default function Footer() {
                 href={COMPANY_INFO.socials.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between hover:text-white transition-colors"
+                className="flex items-center justify-between hover:text-white transition-colors duration-150"
               >
                 <span>Facebook</span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-slate-500" />
@@ -133,7 +133,7 @@ export default function Footer() {
                 href={COMPANY_INFO.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between hover:text-white transition-colors"
+                className="flex items-center justify-between hover:text-white transition-colors duration-150"
               >
                 <span>LinkedIn</span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-slate-500" />
@@ -142,7 +142,7 @@ export default function Footer() {
                 href={`https://wa.me/${COMPANY_INFO.contact.whatsappNumber}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-between text-emerald-400 hover:text-emerald-300 transition-colors font-medium"
+                className="flex items-center justify-between text-emerald-400 hover:text-emerald-300 transition-colors duration-150 font-medium"
               >
                 <span>WhatsApp</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -155,11 +155,11 @@ export default function Footer() {
         {/* Bottom Bar: Legal & Back to Top */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <div className="flex items-center gap-6">
-            <span>© {currentYear} SUNEEL MEDIA TECH. All rights reserved.</span>
-            <Link to="/privacy-policy" className="hover:text-slate-300 transition-colors">
+            <span>© {currentYear} Suneel Media Tech. All rights reserved.</span>
+            <Link to="/privacy-policy" className="hover:text-slate-300 transition-colors duration-150">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="hover:text-slate-300 transition-colors">
+            <Link to="/terms" className="hover:text-slate-300 transition-colors duration-150">
               Terms of Service
             </Link>
           </div>
@@ -167,11 +167,11 @@ export default function Footer() {
           <button
             type="button"
             onClick={scrollToTop}
-            className="flex items-center gap-2 hover:text-white transition-colors cursor-pointer group"
+            className="flex items-center gap-2 hover:text-white transition-colors duration-150 cursor-pointer group"
             aria-label="Back to Top"
           >
             <span>Back to top</span>
-            <ArrowUp className="w-3.5 h-3.5 transition-transform group-hover:-translate-y-0.5" />
+            <ArrowUp className="w-3.5 h-3.5 transition-transform duration-150 group-hover:-translate-y-0.5" />
           </button>
         </div>
 
