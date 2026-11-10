@@ -41,7 +41,7 @@ export const COMPANY_INFO = {
       full: "Tarakarama nagar, Guntur, Andhra Pradesh 522001, India",
     },
     serviceLocations: "Offices & Strategy in Guntur, AP • On-Demand Client Consulting in Hyderabad, Telangana",
-    workingHours: "Monday - Saturday: 9:00 AM - 7:00 PM IST",
+    workingHours: "Monday - Friday: 10:00 AM - 6:00 PM IST",
     responseTime: "Guaranteed response within 2 hours during business hours",
   },
 
